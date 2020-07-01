@@ -1,0 +1,17 @@
+.app-template {
+    height: 100vh;
+    display: flex;
+  }
+  
+  .contact, .contactDetail {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .contact {
+    background: #f1f3f5;
+  }
+  
+  .contactDetail {
+    background: #f8f9fa;
+  }
