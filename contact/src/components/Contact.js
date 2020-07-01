@@ -6,20 +6,20 @@ import ContactCreate from './ContactCreate'
 class Contact extends Component {
   state = {
     keyword: '',
-    selectedKey: -1,
-    contactData: [{
-      name: 'David',
-      phone: '010-1223-5678'
-    }, {
-      name: 'Albert',
-      phone: '010-1223-1234'
-    }, {
-      name: 'John',
-      phone: '010-5678-5678'
-    }, {
-      name: 'Wade',
-      phone: '010-4312-5678'
-    }]
+    // selectedKey: -1,
+    // contactData: [{
+    //   name: 'David',
+    //   phone: '010-1223-5678'
+    // }, {
+    //   name: 'Albert',
+    //   phone: '010-1223-1234'
+    // }, {
+    //   name: 'John',
+    //   phone: '010-5678-5678'
+    // }, {
+    //   name: 'Wade',
+    //   phone: '010-4312-5678'
+    // }]
   }
 
   _searchContact = (e) => {
@@ -28,44 +28,42 @@ class Contact extends Component {
     })
   }
 
-  _nameClick = (key) => {
-    console.log(key);
+  // _nameClick = (key) => {
+  //   this.setState({
+  //     selectedKey: key
+  //   })
+  // }
 
-    this.setState({
-      selectedKey: key
-    })
-  }
+  // _contactCreate = (contactObj) => {
+  //   this.setState({
+  //     ...this.state,
+  //     contactData: [...this.state.contactData, contactObj]
+  //   })
+  // }
 
-  _contactCreate = (contactObj) => {
-    this.setState({
-      ...this.state,
-      contactData: [...this.state.contactData, contactObj]
-    })
-  }
+  // _contactRemove = () => {
+  //   if (this.state.selectedKey === -1) {
+  //     return
+  //   }
+  //   let before = this.state.contactData.slice(0, this.state.selectedKey)
+  //   let after = this.state.contactData.slice(this.state.selectedKey + 1)
+  //   let removedArr = [...before, ...after]
 
-  _contactRemove = () => {
-    if (this.state.selectedKey === -1) {
-      return
-    }
-    let before = this.state.contactData.slice(0, this.state.selectedKey)
-    let after = this.state.contactData.slice(this.state.selectedKey + 1)
-    let removedArr = [...before, ...after]
+  //   this.setState({
+  //     ...this.state,
+  //     contactData: removedArr
+  //   })
+  // }
 
-    this.setState({
-      ...this.state,
-      contactData: removedArr
-    })
-  }
-
-  _contactEdit = (editData) => {
-    let before = this.state.contactData.slice(0, this.state.selectedKey)
-    let after = this.state.contactData.slice(this.state.selectedKey + 1)
-    let newArr = [...before, editData, ...after]
-    this.setState({
-      ...this.state,
-      contactData: newArr
-    })
-  }
+  // _contactEdit = (editData) => {
+  //   let before = this.state.contactData.slice(0, this.state.selectedKey)
+  //   let after = this.state.contactData.slice(this.state.selectedKey + 1)
+  //   let newArr = [...before, editData, ...after]
+  //   this.setState({
+  //     ...this.state,
+  //     contactData: newArr
+  //   })
+  // }
 
   render() {
     const mapToComponents = (data) => {

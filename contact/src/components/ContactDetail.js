@@ -33,8 +33,6 @@ export default class ContactDetail extends Component {
   }
 
   render() {
-    console.log(this.props.contact);
-
     const details = (
       <div>
         <p>{this.props.contact.name}</p>

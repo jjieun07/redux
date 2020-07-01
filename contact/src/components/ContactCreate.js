@@ -23,6 +23,7 @@ export default class ContactCreate extends Component {
       name: '',
       phone: ''
     })
+    this.focusTarget.focus()
   }
 
   render() {
@@ -36,6 +37,7 @@ export default class ContactCreate extends Component {
             placeholder="name"
             value={this.state.name}
             onChange={this._inputChange}
+            ref={(ref) => { this.focusTarget = ref }}
           />
           <input
             type="text"
