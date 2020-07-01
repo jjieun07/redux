@@ -57,7 +57,7 @@ export default connect(
   //   increment: () => dispatch(counterActions.increment()),
   //   decrement: () => dispatch(counterActions.decrement())
   // })
-  (dispatch) => ({
-    CounterActions: bindActionCreators(counterActions, dispatch)
-  })
+  // (dispatch) => ({
+  //   CounterActions: bindActionCreators(counterActions, dispatch)
+  // })
 )(CounterContainer)
