@@ -1,10 +1,36 @@
 import React, { Component } from 'react'
 import ContactInfo from './ContactInfo'
-import ContactDetail from './ContactDetail'
-// import ContactCreate from './ContactCreate'
-import ContactCreateContainer from '../containers/ContactCreateContainer'
-import ContactDetailContainer from '../containers/ContactDetailContainer'
-// import ContactInfoContainer from '../containers/ContactInfoContainer'
+import styled from 'styled-components';
+import oc from 'open-color';
+
+const Wrapper = styled.div`
+    // width: 700px;
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 1rem;
+
+`;
+
+const Form = styled.div`
+    /* 레이아웃 */
+    padding: 1rem;
+
+    /* 색상 */
+    // background: ${oc.gray[0]};
+`;
+
+const Input = styled.input`
+    /* 레이아웃 */
+    width: 100%;
+    padding: 0.5rem;
+
+    /* 색상 */
+    border: 1px solid ${oc.gray[2]};
+
+    /* 기타 */
+    font-size: 1.5rem;
+    line-height: 2rem;
+    transition: all .25s;
+`;
 
 class Contact extends Component {
   state = {
@@ -41,17 +67,18 @@ class Contact extends Component {
     }
 
     return (
-      <div>
-        <h1>연락처</h1>
-        <input
-          name="keyword"
-          placeholder="Search"
-          value={this.state.keyword}
-          onChange={this._searchContact}
-        />
-        <div>{mapToComponents(this.props.contactData)}</div>
-        <ContactCreateContainer />
-      </div>
+      <Wrapper>
+        <Form>
+          <h1>연락처</h1>
+          <Input
+            name="keyword"
+            placeholder="Search"
+            value={this.state.keyword}
+            onChange={this._searchContact}
+          />
+          <div style={{ 'paddingTop': '5%' }}>{mapToComponents(this.props.contactData)}</div>
+        </Form>
+      </Wrapper>
     )
   }
 }

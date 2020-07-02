@@ -10,11 +10,9 @@ class ContactCreateContainer extends Component {
 
   render() {
     const { handleCreate } = this
-    const { key } = this.props
     return (
       <ContactCreate
         onCreate={handleCreate}
-        key={key}
       />
     )
   }
@@ -22,8 +20,8 @@ class ContactCreateContainer extends Component {
 
 export default connect(
   (state) => ({
-    selectedKey: state.contact.selectedKey,
-    contactData: state.contact.contactData
+    // selectedKey: state.contact.selectedKey,
+    // contactData: state.contact.contactData
   }),
   (dispatch) => ({
     create: (obj) => dispatch(contactActions.create(obj))

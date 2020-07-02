@@ -20,7 +20,6 @@ class ContactDetailContainer extends Component {
         isSelected={selectedKey !== -1}
         onEdit={handleEdit}
         onRemove={handleRemove}
-        key={selectedKey}
         contact={contactData[selectedKey]}
       />
     )

@@ -3,15 +3,17 @@
     display: flex;
   }
   
-  .contact, .contactDetail {
+  /* .contact, .contactDetail {
     flex: 1;
     padding: 1rem;
-  }
+  } */
   
   .contact {
+    flex: 1;
     background: #f1f3f5;
   }
   
   .contactDetail {
-    background: #f8f9fa;
+    flex: 2;
+    background: #f1f3f5;
   }

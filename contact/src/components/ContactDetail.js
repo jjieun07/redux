@@ -1,5 +1,45 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import ContactCreateContainer from '../containers/ContactCreateContainer'
+import styled from 'styled-components';
+import oc from 'open-color';
+
+const Wrapper = styled.div`
+    // margin: 0 auto; /* 가운데 정렬 */s
+    padding: 7rem;
+`;
+
+const Form = styled.div`
+    /* 레이아웃 */
+    padding: 3rem;
+    background: #f8f9fa;
+`;
+
+const Text = styled.div`
+  font-size: 1.5rem;
+  display: inline;
+  // padding: 2rem;
+`;
+
+const Input = styled.input`
+    /* 레이아웃 */
+    width: 60%;
+    padding: 0.5rem;
+
+    /* 색상 */
+    border: 1px solid ${oc.gray[2]};
+
+    /* 기타 */
+    font-size: 1.5rem;
+    line-height: 2rem;
+`;
+
+const Button = styled.button`
+  width: 10%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 2rem;
+`
 
 export default class ContactDetail extends Component {
   state = {
@@ -35,25 +75,30 @@ export default class ContactDetail extends Component {
   render() {
     const details = (
       <div>
-        <p>{this.props.contact.name}</p>
-        <p>{this.props.contact.phone}</p>
+        <h2>상세보기</h2>
+        <p>
+          <Text>{this.props.contact.name}</Text>
+        </p>
+        <p>
+          <Text>{this.props.contact.phone}</Text>
+        </p>
       </div>
-    )
-    const blank = (
-      <div>Not Selected</div>
     )
 
     const edit = (
       <div>
+        <h2>수정하기</h2>
         <p>
-          <input
+          <Input
             name="name"
             type="text"
             placeholder="name"
             value={this.state.name}
             onChange={this._inputChange}
           />
-          <input
+          <br />
+          <br />
+          <Input
             name="phone"
             type="text"
             placeholder="phone"
@@ -66,12 +111,17 @@ export default class ContactDetail extends Component {
 
     const view = this.state.isEdit ? edit : details
     return (
-      <div>
-        <h2>상세보기</h2>
-        {this.props.isSelected ? view : blank}
-        <button onClick={this._editButtonToggle}>{this.state.isEdit ? '완료' : '수정'}</button>
-        <button onClick={this.props.onRemove}>삭제</button>
-      </div>
+      <Wrapper>
+        <Form>
+          {view}
+          <Button onClick={this._editButtonToggle}>{this.state.isEdit ? '완료' : '수정'}</Button>
+          <Button onClick={this.props.onRemove}>삭제</Button>
+        </Form>
+        <br />
+        <Form>
+          <ContactCreateContainer />
+        </Form>
+      </Wrapper>
     )
   }
 }

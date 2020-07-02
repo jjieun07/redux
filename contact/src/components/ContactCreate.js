@@ -1,5 +1,26 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import oc from 'open-color';
+
+const Button = styled.button`
+  width: 10%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 2rem;
+`
+const Input = styled.input`
+    /* 레이아웃 */
+    width: 60%;
+    padding: 0.5rem;
+
+    /* 색상 */
+    border: 1px solid ${oc.gray[2]};
+
+    /* 기타 */
+    font-size: 1.5rem;
+    line-height: 2rem;
+`;
 
 export default class ContactCreate extends Component {
   state = {
@@ -29,17 +50,17 @@ export default class ContactCreate extends Component {
   render() {
     return (
       <div>
-        <h2>새 연락처</h2>
+        <h2>새 연락처 추가</h2>
         <p>
-          <input
+          <Input
             type="text"
             name="name"
             placeholder="name"
             value={this.state.name}
             onChange={this._inputChange}
             ref={(ref) => { this.focusTarget = ref }}
-          />
-          <input
+          /><br /><br />
+          <Input
             type="text"
             name="phone"
             placeholder="phone"
@@ -47,7 +68,7 @@ export default class ContactCreate extends Component {
             onChange={this._inputChange}
           />
         </p>
-        <button onClick={this._buttonClick}>추가</button>
+        <Button onClick={this._buttonClick}>추가</Button>
       </div>
     )
   }
