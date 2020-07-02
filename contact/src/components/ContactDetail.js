@@ -54,9 +54,9 @@ export default class ContactDetail extends Component {
             onChange={this._inputChange}
           />
           <input
-            name="name"
+            name="phone"
             type="text"
-            placeholder="name"
+            placeholder="phone"
             value={this.state.phone}
             onChange={this._inputChange}
           />
@@ -69,7 +69,7 @@ export default class ContactDetail extends Component {
       <div>
         <h2>상세보기</h2>
         {this.props.isSelected ? view : blank}
-        <button onClick={this._editButtonToggle}>{this.state.isEdit ? '수정하기' : '수정'}</button>
+        <button onClick={this._editButtonToggle}>{this.state.isEdit ? '완료' : '수정'}</button>
         <button onClick={this.props.onRemove}>삭제</button>
       </div>
     )

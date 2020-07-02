@@ -1,25 +1,14 @@
 import React, { Component } from 'react'
 import ContactInfo from './ContactInfo'
 import ContactDetail from './ContactDetail'
-import ContactCreate from './ContactCreate'
+// import ContactCreate from './ContactCreate'
+import ContactCreateContainer from '../containers/ContactCreateContainer'
+import ContactDetailContainer from '../containers/ContactDetailContainer'
+// import ContactInfoContainer from '../containers/ContactInfoContainer'
 
 class Contact extends Component {
   state = {
     keyword: '',
-    // selectedKey: -1,
-    // contactData: [{
-    //   name: 'David',
-    //   phone: '010-1223-5678'
-    // }, {
-    //   name: 'Albert',
-    //   phone: '010-1223-1234'
-    // }, {
-    //   name: 'John',
-    //   phone: '010-5678-5678'
-    // }, {
-    //   name: 'Wade',
-    //   phone: '010-4312-5678'
-    // }]
   }
 
   _searchContact = (e) => {
@@ -27,43 +16,6 @@ class Contact extends Component {
       keyword: e.target.value
     })
   }
-
-  // _nameClick = (key) => {
-  //   this.setState({
-  //     selectedKey: key
-  //   })
-  // }
-
-  // _contactCreate = (contactObj) => {
-  //   this.setState({
-  //     ...this.state,
-  //     contactData: [...this.state.contactData, contactObj]
-  //   })
-  // }
-
-  // _contactRemove = () => {
-  //   if (this.state.selectedKey === -1) {
-  //     return
-  //   }
-  //   let before = this.state.contactData.slice(0, this.state.selectedKey)
-  //   let after = this.state.contactData.slice(this.state.selectedKey + 1)
-  //   let removedArr = [...before, ...after]
-
-  //   this.setState({
-  //     ...this.state,
-  //     contactData: removedArr
-  //   })
-  // }
-
-  // _contactEdit = (editData) => {
-  //   let before = this.state.contactData.slice(0, this.state.selectedKey)
-  //   let after = this.state.contactData.slice(this.state.selectedKey + 1)
-  //   let newArr = [...before, editData, ...after]
-  //   this.setState({
-  //     ...this.state,
-  //     contactData: newArr
-  //   })
-  // }
 
   render() {
     const mapToComponents = (data) => {
@@ -73,13 +25,16 @@ class Contact extends Component {
           return contact.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) > -1;
         }
       )
+
       return data.map(
         (contact, i) => {
           return (
             <ContactInfo
               contact={contact}
               key={i}
-              onClick={() => this._nameClick(i)}
+              onClick={() => {
+                this.props.onDetail(i)
+              }}
             />)
         }
       )
@@ -94,14 +49,8 @@ class Contact extends Component {
           value={this.state.keyword}
           onChange={this._searchContact}
         />
-        <div>{mapToComponents(this.state.contactData)}</div>
-        <ContactDetail
-          isSelected={this.state.selectedKey !== -1}
-          contact={this.state.contactData[this.state.selectedKey]}
-          onRemove={this._contactRemove}
-          onEdit={this._contactEdit}
-        />
-        <ContactCreate onCreate={this._contactCreate} />
+        <div>{mapToComponents(this.props.contactData)}</div>
+        <ContactCreateContainer />
       </div>
     )
   }

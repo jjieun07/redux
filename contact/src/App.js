@@ -1,12 +1,12 @@
 import React from 'react';
 import AppTemplate from './AppTemplate';
-import Contact from './components/Contact'
-import ContactDetail from './components/ContactDetail'
+import ContactContainer from './containers/ContactContainer'
+import ContactDetailContainer from './containers/ContactDetailContainer'
 function App() {
   return (
     <AppTemplate
-      contact={<Contact />}
-    // contactDetail={<ContactDetail />}
+      contact={<ContactContainer />}
+      contactDetail={<ContactDetailContainer />}
     />
   );
 }
