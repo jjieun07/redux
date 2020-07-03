@@ -13,7 +13,7 @@ class App extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { PostActions } = this.props
+        // const { PostActions } = this.props
 
         // 현재 number와 새로 받을 number가 다를 경우 요청 시도
         if (this.props.number !== nextProps.number) {
@@ -61,8 +61,10 @@ export default connect(
     (state) => ({
         number: state.counter,
         post: state.post.data,
-        loading: state.post.pending,
-        error: state.post.error
+        loadion: state.pender.pending['GET_POST'],
+        error: state.pender.failure['GET_POST']
+        // loading: state.post.pending,
+        // error: state.post.error
     }),
     (dispatch) => ({
         CounterActions: bindActionCreators(counterActions, dispatch),
