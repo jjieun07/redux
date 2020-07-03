@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ContactDetail from '../components/ContactDetail'
+import ContactDetail from './ContactDetail'
 import { connect } from 'react-redux'
-import * as contactActions from '../store/modules/contact'
+import * as contactActions from '../../store/modules/contact'
 
 class ContactDetailContainer extends Component {
   handleEdit = (obj) => {

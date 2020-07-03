@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContactInfo from './ContactInfo'
+import ContactInfo from '../ContactInfo/ContactInfo'
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -33,6 +33,24 @@ const Input = styled.input`
 `;
 
 class Contact extends Component {
+  componentWillMount() {
+    const contactData = localStorage.contactData
+    console.log(contactData);
+
+    if (contactData) {
+      this.props.initData(JSON.parse(contactData))
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contactData } = this.props
+
+    if (JSON.stringify(prevState.contactData) !== JSON.stringify(contactData)) {
+
+      localStorage.contactData = JSON.stringify(contactData)
+    }
+  }
+
   state = {
     keyword: '',
   }

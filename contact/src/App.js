@@ -1,7 +1,7 @@
 import React from 'react';
 import AppTemplate from './AppTemplate';
-import ContactContainer from './containers/ContactContainer'
-import ContactDetailContainer from './containers/ContactDetailContainer'
+import ContactContainer from './components/Contact/ContactContainer'
+import ContactDetailContainer from './components/ContactDetail/ContactDetailContainer'
 
 function App() {
   return (

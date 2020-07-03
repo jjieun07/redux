@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ContactCreate from '../components/ContactCreate'
+import ContactCreate from './ContactCreate'
 import { connect } from 'react-redux'
-import * as contactActions from '../store/modules/contact'
+import * as contactActions from '../../store/modules/contact'
 
 class ContactCreateContainer extends Component {
   handleCreate = (obj) => {
@@ -19,10 +19,7 @@ class ContactCreateContainer extends Component {
 }
 
 export default connect(
-  (state) => ({
-    // selectedKey: state.contact.selectedKey,
-    // contactData: state.contact.contactData
-  }),
+  null,
   (dispatch) => ({
     create: (obj) => dispatch(contactActions.create(obj))
   })

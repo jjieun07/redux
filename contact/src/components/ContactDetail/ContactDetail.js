@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ContactCreateContainer from '../containers/ContactCreateContainer'
+import ContactCreateContainer from '../ContactCreate/ContactCreateContainer'
 import styled from 'styled-components';
 import oc from 'open-color';
 

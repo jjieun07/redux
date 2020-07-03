@@ -1,10 +1,12 @@
 import { createAction } from 'redux-actions'
 
+const INIT = 'INIT'
 const DETAIL = 'DETAIL'
 const EDIT = 'EDIT'
 const REMOVE = 'REMOVE'
 const CREATE = 'CREATE'
 
+export const init = createAction(INIT, obj => obj)
 export const detail = createAction(DETAIL, key => key)
 export const edit = createAction(EDIT, editObj => editObj)
 export const remove = createAction(REMOVE, removedObj => removedObj)
@@ -33,6 +35,8 @@ export default function reducer(state = initialState, action) {
   let after = state.contactData.slice(state.selectedKey + 1)
 
   switch (action.type) {
+    case INIT:
+      return { ...state, contactData: action.payload }
     case DETAIL:
       return { ...state, selectedKey: action.payload }
     case EDIT:
